@@ -5,7 +5,7 @@ in a combo box the available binary files that can be flashed to this board
 using binaries_available.py.
 It also dislays an option to run or debug the program and then a button to
 start the process to flash the file to run or debug it.'''
-
+#new comment
 # example radiobuttons.py
 import pygtk
 pygtk.require('2.0')
