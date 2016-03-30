@@ -1,0 +1,3 @@
+Sorry, try again.
+Sorry, try again.
+sudo: openocd: command not found

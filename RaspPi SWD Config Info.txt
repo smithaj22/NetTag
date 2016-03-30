@@ -1,0 +1,1 @@
+http://log2.ch/2014/stm32-and-jtag-via-raspberry/

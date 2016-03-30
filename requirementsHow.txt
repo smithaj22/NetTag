@@ -1,0 +1,37 @@
+Definitions: 
+	NetTag - The medium the software is running on between the host and the target
+	Debugging - Allows the user to step through the code, set break points and watch variables
+	Target - the micro-controller that the NetTag is debugging
+	Host - the programmers / engineers computer used to communicate with the NetTag
+
+Requirements-
+
+id# 001-The NetTag shall allow the user to modify and flash software for the chip on the CC3200 and STM32F4-Discovery board.
+	*Host OCD library for debugging and flashing programs
+	*Connect with USB on the NetTag to JTAG on the target
+
+id# 002-The NetTag shall provide debugging of software for the chip on the CC3200 and STM32F4-Discovery board.
+	*GDB Server hosted on the NetTag
+
+id# 003-The NetTag shall utilize gdbserver for debugging.
+
+id# 005-The NetTag shall detect the type of chip using the ID register and configure the software appropriately
+	*Compare the ID register values with known ID register values to find matches
+	*The user shall select from the mathes the configuration that they want
+
+id# 006-The NetTag shall communicate with the target through JTAG.	
+	*Via USB to JTAG port cable
+
+id# 007-The NetTag shall provide a list of available actions appropriate for the available software for debugging and configuration testing based on the microcontroller, to the programmer.
+	*After selecting the config file the NetTag shall present the different makefile options hosted on the NetTag already
+
+id# 010-The NetTag shall communicate with the host
+	*Ethernet Cable
+	*Ubuntu to Ubuntu
+
+B-id# 011-The NetTag physical module shall have the option of being battery powered.
+	
+id# 012-The NetTag can be configured to support new targets as required
+	*Through a file structure that breaks it down by chip->board->action->makefile
+
+B-id# 013-The NetTag shall communicate wirelessly

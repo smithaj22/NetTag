@@ -1,0 +1,1 @@
+http://stm32f4-discovery.com/2014/12/library-44-stm32f4-unique-id-and-flash-size/

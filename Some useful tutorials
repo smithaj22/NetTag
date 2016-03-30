@@ -1,0 +1,27 @@
+Some useful tutorials:
+
+**Remote SSH access to Raspberry Pi 2 
+http://www.instructables.com/id/Remote-SSH-access-to-Raspberry-Pi-2/
+	*Talks about installation in raspbian, we would be using Ubuntu.
+
+	Ever wanted to deploy a Raspberry Pi "in the field" and still be able to access it?
+
+	Here is an easy way to enable remote SSH access to your Raspberry Pi 2 (and other models, too). While there are solutions involving a VPN or configuring port forwarding at a local firewall, those are often hard to manage for non-experts.
+
+**Configuring OpenOCD for JTAG debugging
+http://visualgdb.com/tutorials/arm/openocd/
+	This tutorial explains various OpenOCD settings and shows how to configure it to use your JTAG programmer and board.
+
+**Preparing Raspberry PI for JTAG Debugging
+http://sysprogs.com/VisualKernel/tutorials/raspberry/jtagsetup/
+
+	This tutorial shows how to prepare your Raspberry PI board for debugging with JTAG. Using JTAG will allow debugging the Linux kernel using hardware like Segger J-Link. As Raspberry PI board does not have a connector with a normal JTAG layout, preparing the board for JTAG debugging involves finding the correct pins and wiring them in the correct order.
+	
+**RaspberryPi installing Ubuntu 14.04 LTS
+https://wiki.ubuntu.com/ARM/RaspberryPi
+	Ubuntu 14.04 LTS
+	An Ubuntu 14.04 LTS (Trusty Tahr) image is available for the Raspberry Pi 2, which combines the released 14.04 distribution with a PPA containing kernels and firmware which work on the Raspberry Pi 2.
+
+
+https://github.com/synthetos/PiOCD/wiki/Using-a-Raspberry-Pi-as-a-JTAG-Dongle
+
