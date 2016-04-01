@@ -44,6 +44,7 @@ class OptionWindow:
     def __init__(self):
         ####window settings###
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        gtk.Window.fullscreen(self.window)
         # self.window.set_position(gtk.WIN_POS_CENTER)
         self.window.connect("delete_event", self.close_application)
         self.window.set_size_request(240,150)
@@ -55,19 +56,31 @@ class OptionWindow:
         self.upperLabel = gtk.Label("\tSelect a file\nThen Flash or Debug")
         self.box.pack_start(self.upperLabel)
 
-        ####Combo box###
-        '''having trouble clicking on the combo box when it shows on GUI'''
-        self.comboList = gtk.combo_box_new_text()
-        self.comboList.connect("changed", self.change_bin_file)
-        self.comboList.set_active(0)
-        self.comboList.append_text("Text 0")
-        self.comboList.append_text("Text 1")
-        self.comboList.append_text("Text 2")
-        # for indexFile in range(len(binaries_available.binary_names)):
-        #     self.combo.append_text(binaries_available.binary_names[indexFile])
-        #     print 'File: ', binaries_available.binary_names[indexFile]
+        ##List for comboBox -  http://stackoverflow.com/questions/23757738/python-gtk-how-to-insert-items-from-list-to-combobox
+        
+        self.fileList = gtk.ListStore(str)
+        files = binaries_available.binary_names
 
-        self.box.pack_start(self.comboList, False, False)
+        for row in files:
+            self.fileList.append([row[0]])
+        cell = gtk.CellRendererText()
+        comboB = gtk.ComboBox(model=self.fileList)
+        self.box.pack_start(cell)
+        comboB.set_attributes(cell, text = 0)
+
+
+
+
+        ####Combo box###
+        # '''having trouble clicking on the combo box when it shows on GUI'''
+        # self.comboList = gtk.combo_box_new_text()
+        # self.comboList.connect("changed", self.change_bin_file)
+        # self.comboList.set_active(0)
+        # self.comboList.append_text("Text 0")
+        # self.comboList.append_text("Text 1")
+        # self.comboList.append_text("Text 2")
+
+        # self.box.pack_start(self.comboList, False, False)
 
         ###Two buttons (to run or debug)###
         self.twoButtonBox = gtk.HBox()
