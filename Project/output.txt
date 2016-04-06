@@ -11,9 +11,7 @@ Info : BCM2835 GPIO JTAG/SWD bitbang driver
 Info : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)
 Info : clock speed 2002 kHz
 Warn : There are no enabled taps.  AUTO PROBING MIGHT NOT WORK!!
-Info : JTAG tap: auto0.tap tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)
-Info : JTAG tap: auto1.tap tap/device found: 0x06413041 (mfg: 0x020 (STMicroelectronics), part: 0x6413, ver: 0x0)
-Warn : AUTO auto0.tap - use "jtag newtap auto0 tap -irlen 4 -expected-id 0x4ba00477"
-Warn : AUTO auto1.tap - use "jtag newtap auto1 tap -irlen 5 -expected-id 0x06413041"
+Info : JTAG tap: auto0.tap tap/device found: 0x0b97c02f (mfg: 0x017 (Texas Instruments), part: 0xb97c, ver: 0x0)
+Warn : AUTO auto0.tap - use "jtag newtap auto0 tap -irlen 6 -expected-id 0x0b97c02f"
 Warn : gdb services need one or more targets defined
 shutdown command invoked
