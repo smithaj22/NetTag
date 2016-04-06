@@ -3,10 +3,12 @@
 import os
 var = "output.txt"
 path =  "/usr/local/share/openocd/scripts/target"
+configPath = "/home/pi/nettag/NetTag/Project/jtag\ connection/rp.cfg"   
 target = "Error Chip Not Found"
 boardVar = "Could not find board"
 configVar = "Could not find config file" 
-os.system("sudo openocd -f /usr/local/share/openocd/scripts/interface/rp.cfg -c 'init'  2>"+ var)
+
+os.system("sudo openocd -f" +configPath +" -c 'init' -c 'shutdown'  2>"+ var)
 
 searchfile = open(var)
 for line in searchfile:
