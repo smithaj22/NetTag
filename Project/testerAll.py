@@ -21,7 +21,7 @@ def hexToChip ():
     os.chdir("..")
 
     #check output file for preset hex values
-    f = open('output2.txt') #change to output once openocd spits out again
+    f = open('output.txt') #change to output once openocd spits out again
     s = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ) #reduces load on memory if output gets big
     for x in range(0, len(techName)):
         if s.find(techName[x]) != -1:
