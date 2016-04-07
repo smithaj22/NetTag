@@ -17,8 +17,8 @@ try:
     subprocess.check_call(['echo' ,'\"NETTAG/boards/\"', '>>', '.git/info/sparse-checkout'])
     subprocess.check_call(['git', 'pull', 'origin', 'master'])
     os.chdir("../")
-    shutil.rmtree("NETTAG")
-    subprocess.check_call(['mv', 'hold/','NETTAG'])
+    shutil.rmtree("boards")
+    subprocess.check_call(['mv', 'hold/','boards'])
 
 except:
     os.chdir("../")
