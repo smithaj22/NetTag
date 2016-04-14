@@ -11,7 +11,7 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 import binaries_available
-import startGDB
+#import startGDB
 
 binary_selected = "0"
 
@@ -35,21 +35,22 @@ class OptionWindow:
     def flash_to_board(self, widget):
         print "file will now flash"
         ####Path hardcoded for now
-        startGDB.startGDB(binaries_available.binary_exe[0])
+#        startGDB.startGDB(binaries_available.binary_exe[0])
 
     def debug(self, widget, data=None):
         print "debug function will be called"
 
-
     def __init__(self):
-        ####window settings###
+	binaries_available.binAvailable("board0")
+       ####window settings###
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+	gtk.Window.fullscreen(self.window)
         # self.window.set_position(gtk.WIN_POS_CENTER)
         self.window.connect("delete_event", self.close_application)
         self.window.set_size_request(240,150)
         self.window.set_title("NetTag")
         self.box = gtk.VBox()
-        self.window.maximize()
+#        self.window.maximize()
 
         ####Label###
         self.upperLabel = gtk.Label("\tSelect a file\nThen Flash or Debug")
@@ -60,12 +61,10 @@ class OptionWindow:
         self.comboList = gtk.combo_box_new_text()
         self.comboList.connect("changed", self.change_bin_file)
         self.comboList.set_active(0)
-        self.comboList.append_text("Text 0")
-        self.comboList.append_text("Text 1")
-        self.comboList.append_text("Text 2")
-        # for indexFile in range(len(binaries_available.binary_names)):
-        #     self.combo.append_text(binaries_available.binary_names[indexFile])
-        #     print 'File: ', binaries_available.binary_names[indexFile]
+
+        for indexFile in range(len(binaries_available.binary_names)):
+             self.comboList.append_text(binaries_available.binary_names[indexFile])
+             print 'File: ', binaries_available.binary_names[indexFile]
 
         self.box.pack_start(self.comboList, False, False)
 

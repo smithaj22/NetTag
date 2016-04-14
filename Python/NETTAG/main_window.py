@@ -8,7 +8,7 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 import get_id
-import New_file_list
+#import New_file_list
 
 board = "will get Id from get_id"
 binary_file = "bin file to flasH"
@@ -19,7 +19,7 @@ class StartWin:
         print "Start was selected.."
         board = get_id.findBoard()
         print board
-        New_file_list.OptionWindow()
+       # New_file_list.OptionWindow()
 
 
     # def shut_down_pi(self, widget):
@@ -33,10 +33,12 @@ class StartWin:
     def __init__(self):
         #window settings
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+	gtk.Window.fullscreen(self.window)
         # self.window.set_position(gtk.WIN_POS_CENTER)
         self.window.connect("delete_event", self.close_application)
         self.window.set_size_request(480,250)
         self.window.set_title("NetTag")
+	
 
         #Logo - inserted as image
         self.logo = gtk.Image()
