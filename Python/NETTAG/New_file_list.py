@@ -14,6 +14,7 @@ import binaries_available
 #import startGDB
 
 binary_selected = "0"
+board_selected = "board1"
 
 class OptionWindow:
 
@@ -23,25 +24,25 @@ class OptionWindow:
         return False
 
     def change_bin_file(self, widget):
-        binary_selected = widget.get_active_text()
+        binary_selected = "./" + str(widget.get_active_text())
         message = str(binary_selected) +" file selected\nNow select Flash or Debug"
         self.upperLabel.set_text(message)
         print str(binary_selected) + " selected"
-
+	
     def text_change(self, widget):
         # bin_ava_binary_to_flash = widget.get_active_text()
         print "text changed"
 
     def flash_to_board(self, widget):
         print "file will now flash"
-        ####Path hardcoded for now
-#        startGDB.startGDB(binaries_available.binary_exe[0])
+#        startGDB.startGDB(binary_selected)
 
     def debug(self, widget, data=None):
         print "debug function will be called"
 
     def __init__(self):
-	binaries_available.binAvailable("board0")
+	message = " " 
+	binaries_available.binAvailable(board_selected)
        ####window settings###
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
 	gtk.Window.fullscreen(self.window)
@@ -54,18 +55,19 @@ class OptionWindow:
 
         ####Label###
         self.upperLabel = gtk.Label("\tSelect a file\nThen Flash or Debug")
-        self.box.pack_start(self.upperLabel)
+        self.upperLabel.set_text("Select a file")
+	self.box.pack_start(self.upperLabel)
+		
 
         ####Combo box###
-        '''having trouble clicking on the combo box when it shows on GUI'''
         self.comboList = gtk.combo_box_new_text()
         self.comboList.connect("changed", self.change_bin_file)
-        self.comboList.set_active(0)
+#        self.comboList.set_active(0)
 
         for indexFile in range(len(binaries_available.binary_names)):
-             self.comboList.append_text(binaries_available.binary_names[indexFile])
-             print 'File: ', binaries_available.binary_names[indexFile]
-
+            self.comboList.append_text(binaries_available.binary_names[indexFile])
+            #print 'File: ', binaries_available.binary_names[indexFile]
+	    
         self.box.pack_start(self.comboList, False, False)
 
         ###Two buttons (to run or debug)###
