@@ -3,7 +3,7 @@ import subprocess
 
 def startGDB(binPath):
     string="load "+binPath;
-    subprocess.call("arm-none-eabi-gdb -ex 'target remote localhost:3333' -ex 'monitor reset halt' -ex "+string,shell=True);
+    subprocess.call("gdb -ex 'target remote localhost:3333' -ex 'monitor reset halt' -ex "+string,shell=True);
     return;
 #test code 
-#startGDB("/home/greg/CS3950/HelloArm.elf");
+#startGDB("/home/pi/NetTag/Project/blinky.axf");
