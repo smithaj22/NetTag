@@ -47,6 +47,6 @@ def binAvailable (board):
                 filepath = os.path.join(root, filename)
                 binary_names.append(filename)
                 binary_exe.append(filepath)
-        # print(binary_names)
-        # print(binary_exe)
+        #print(binary_names)
+        #print(binary_exe)
         print("Program Complete")

@@ -16,9 +16,12 @@ runOrDebug = 0 #0 for run 1 for debug
 
 class StartWin:
     def callback_getId(self, widget):
-        print "Start was selected.."
+	New_file_list.board_selected = "board0" 
+	print New_file_list.board_selected
+       	print "Start was selected.."
         board = get_id.findBoard()
         print board
+#	New_file_list.board_selected = board
         New_file_list.OptionWindow()
 
 
@@ -33,10 +36,12 @@ class StartWin:
     def __init__(self):
         #window settings
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+	gtk.Window.fullscreen(self.window)
         # self.window.set_position(gtk.WIN_POS_CENTER)
         self.window.connect("delete_event", self.close_application)
         self.window.set_size_request(480,250)
         self.window.set_title("NetTag")
+	
 
         #Logo - inserted as image
         self.logo = gtk.Image()
