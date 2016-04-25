@@ -78,7 +78,6 @@ class OptionWindow:
 
 	#Run or debug button
 	self.extraLabel = gtk.Label(" ");
-	self.box.pack_start(self.extraLabel)
 
 
         ####Combo box###
@@ -103,6 +102,7 @@ class OptionWindow:
         self.DebugButton.connect("clicked", self.debug)
         self.twoButtonBox.pack_start(self.DebugButton)
 
+	self.box.pack_start(self.extraLabel)
         self.box.pack_start(self.twoButtonBox)
 
         self.window.add(self.box)
