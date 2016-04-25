@@ -28,7 +28,7 @@ class StartWin:
     # def shut_down_pi(self, widget):
     #     print "NetTag will now shut down.."
 
-    def close_application(self, widget, event, data=None):
+    def close_application(self, widget):
         #Change this to maybe turn off NetTag
         gtk.main_quit()
         return False
@@ -55,14 +55,28 @@ class StartWin:
 
         # self.shutDown = gtk.Button("ShutDown")
         # self.shutDown.connect("clicked", self.shut_down_pi)
+	
+	#exit button and logo
+	self.exitBox = gtk.HBox()
+
+	self.exitButton = gtk.Button(" X ")
+	self.exitButton.connect("clicked", self.close_application)
+	self.exitBox.pack_start(self.exitButton)
+
+	self.welcomeLabel = gtk.Label("Welcome! Connect board then select 'Start'")	
+	self.exitBox.pack_start(self.welcomeLabel)
+
 
         self.box = gtk.VBox()
+	self.box.pack_start(self.exitBox)
         self.box.pack_start(self.logo)
         self.box.pack_start(self.startButton)
         # self.box.pack_start(self.shut_down_pi)
 
         #add and display on window
         self.window.add(self.box)
+	#Added here
+#	self.window.add(self.exitButton)
         self.window.set_border_width(0)
         self.window.show_all()
 
