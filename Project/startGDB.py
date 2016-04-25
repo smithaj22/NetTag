@@ -2,11 +2,10 @@
 import subprocess
 
 def startGDB(binPath,cfgPath):
-    cfgPath = "/usr/local/share/openocd/scripts/board/stm32f4discovery.cfg"
-    binPath = "/boards/"
-    subprocess sp=popen(['openocd','-f',cfgPath]);
     string="load "+binPath;
-    subprocess.call("arm-none-eabi-gdb -ex 'target remote localhost:3333' -ex 'monitor reset halt' -ex "+string,shell=True);
+    subprocess.call("gdb -ex 'target remote localhost:3333' -ex 'monitor reset halt' -ex "+string,shell=True);
     return;
-#test code
-#startGDB("/home/greg/CS3950/HelloArm.elf");
+
+#test code 
+#startGDB("/home/pi/NetTag/Project/blinky.axf");
+
