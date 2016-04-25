@@ -18,7 +18,7 @@ board_selected = "board1"
 
 class OptionWindow:
 
-    def close_application(self, widget, event, data=None):
+    def close_application(self, widget):
         #Change this to maybe turn off NetTag
         gtk.main_quit()
         return False
@@ -54,10 +54,22 @@ class OptionWindow:
 #        self.window.maximize()
 
         ####Label###
-        self.upperLabel = gtk.Label("\tSelect a file\nThen Flash or Debug")
-        self.upperLabel.set_text("Select a file")
-	self.box.pack_start(self.upperLabel)
+        self.upperLabel = gtk.Label("\tSelect a file")
+        self.upperLabel.set_text("Board found:  " + str(board_selected))
 		
+	#Exit button
+	self.upperBox = gtk.HBox()
+	self.exitButton = gtk.Button("X")
+	self.exitButton.connect("clicked" , self.close_application)
+	self.upperBox.pack_start(self.exitButton)
+
+	self.upperBox.pack_start(self.upperLabel)
+
+	self.box.pack_start(self.upperBox)
+	
+	self.fileLabel = gtk.Label("Select file")
+	self.fileLabel.set_text("Select File")	
+	self.box.pack_start(self.fileLabel)
 
         ####Combo box###
         self.comboList = gtk.combo_box_new_text()
