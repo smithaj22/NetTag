@@ -9,6 +9,7 @@ pygtk.require('2.0')
 import gtk
 import get_id
 import New_file_list
+import os
 
 board = "will get Id from get_id"
 binary_file = "bin file to flasH"
@@ -30,7 +31,8 @@ class StartWin:
 
     def close_application(self, widget):
         #Change this to maybe turn off NetTag
-        gtk.main_quit()
+        os.system("sudo shutdown -h now")
+	gtk.main_quit()
         return False
 
     def __init__(self):

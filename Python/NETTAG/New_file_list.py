@@ -11,6 +11,7 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 import binaries_available
+import os
 #import startGDB
 
 binary_selected = "0"
@@ -20,15 +21,16 @@ class OptionWindow:
 
     def close_application(self, widget):
         #Change this to maybe turn off NetTag
-        gtk.main_quit()
+        os.system("sudo shutdown -h now")
+	#gtk.main_quit()
         return False
 
     def change_bin_file(self, widget):
         binary_selected = "./" + str(widget.get_active_text())
-        message = str(widget.get_active_text()+" file selected\n")
+        message = "File selected:  " + str(widget.get_active_text())
         self.fileLabel.set_text(message)
 	self.extraLabel.set_text("Now select Flash or Debug")
-        print str(widget.get_active_text()) + " selected"
+        print str(binary_selected) + " selected"
 	
     def text_change(self, widget):
         # bin_ava_binary_to_flash = widget.get_active_text()
@@ -36,9 +38,11 @@ class OptionWindow:
 
     def flash_to_board(self, widget):
         print "file will now flash"
+	#Add call to FLASH CODE
 #        startGDB.startGDB(binary_selected)
 
     def debug(self, widget, data=None):
+	#Add call to DEBUG CODE
         print "debug function will be called"
 
     def __init__(self):
