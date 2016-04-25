@@ -25,9 +25,10 @@ class OptionWindow:
 
     def change_bin_file(self, widget):
         binary_selected = "./" + str(widget.get_active_text())
-        message = str(binary_selected) +" file selected\nNow select Flash or Debug"
-        self.upperLabel.set_text(message)
-        print str(binary_selected) + " selected"
+        message = str(widget.get_active_text()+" file selected\n")
+        self.fileLabel.set_text(message)
+	self.extraLabel.set_text("Now select Flash or Debug")
+        print str(widget.get_active_text()) + " selected"
 	
     def text_change(self, widget):
         # bin_ava_binary_to_flash = widget.get_active_text()
@@ -66,10 +67,15 @@ class OptionWindow:
 	self.upperBox.pack_start(self.upperLabel)
 
 	self.box.pack_start(self.upperBox)
-	
+	#file label button
 	self.fileLabel = gtk.Label("Select file")
 	self.fileLabel.set_text("Select File")	
 	self.box.pack_start(self.fileLabel)
+
+	#Run or debug button
+	self.extraLabel = gtk.Label(" ");
+	self.box.pack_start(self.extraLabel)
+
 
         ####Combo box###
         self.comboList = gtk.combo_box_new_text()
