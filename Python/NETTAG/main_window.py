@@ -12,6 +12,7 @@ import New_file_list
 import os
 
 board = "will get Id from get_id"
+target_selected = "file manually selected"
 binary_file = "bin file to flasH"
 runOrDebug = 0 #0 for run 1 for debug
 
@@ -25,10 +26,17 @@ class StartWin:
 #	New_file_list.board_selected = board
         New_file_list.OptionWindow()
 
+    def callback_file_window(self, widget):
+        New_file_list.board_selected = target_selected
+        print New_file_list.board_selected
+        print "Board was selected.."
+	self.manualStartButton.set_text(str(target_selected))
+        New_file_list.OptionWindow()
 
-    # def shut_down_pi(self, widget):
-    #     print "NetTag will now shut down.."
 
+    def change_target(self, widget):
+	target_selected = str(widget.get_active_text())
+    
     def close_application(self, widget):
         #Change this to maybe turn off NetTag
         os.system("sudo shutdown -h now")
@@ -49,15 +57,33 @@ class StartWin:
         self.logo = gtk.Image()
         self.logo.set_from_file("Pics/miniLogo.png")
         # self.logo.queue_resize
+	
+	####Combo box###
+        self.comboList = gtk.combo_box_new_text()
+        self.comboList.connect("changed", self.change_target)
+#        self.comboList.set_active(0)
 
-        #Button
-        self.startButton = gtk.Button("Start")
+#        for indexFile in range(len(binaries_available.binary_names)):
+#            self.comboList.append_text(binaries_available.binary_names[indexFile])
+#            #print 'File: ', binaries_available.binary_names$
+		
+        self.comboList.append_text("STM ")
+        self.comboList.append_text("TI ")
+
+
+
+	
+        #Button- auto start
+        self.startButton = gtk.Button("Search for board")
         self.startButton.connect("clicked", self.callback_getId)
         self.startButton.set_tooltip_text("Click to find board")
 
-        # self.shutDown = gtk.Button("ShutDown")
-        # self.shutDown.connect("clicked", self.shut_down_pi)
-	
+	#Button- manual start
+        self.manualStartButton = gtk.Button("Select board")
+        self.manualStartButton.connect("clicked", self.callback_file_window)
+        
+        
+
 	#exit button and logo
 	self.exitBox = gtk.HBox()
 
@@ -72,7 +98,13 @@ class StartWin:
         self.box = gtk.VBox()
 	self.box.pack_start(self.exitBox)
         self.box.pack_start(self.logo)
-        self.box.pack_start(self.startButton)
+        self.box.pack_start(self.comboList, False, False)
+
+	self.startBox = gtk.HBox()
+	
+        self.startBox.pack_start(self.startButton)
+	self.startBox.pack_start(self.manualStartButton)
+	self.box.pack_start(self.startBox)
         # self.box.pack_start(self.shut_down_pi)
 
         #add and display on window
