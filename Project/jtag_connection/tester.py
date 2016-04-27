@@ -3,7 +3,7 @@
 import os
 var = "output.txt"
 path =  "/usr/local/share/openocd/scripts/target"
-configPath = "/home/pi/NetTag/Project/jtag\ connection/rp.cfg"   
+configPath = "/home/pi/NetTag/Project/jtag_connection/rp_generic.cfg"   
 target = "Error Chip Not Found"
 boardVar = "Could not find board"
 configVar = "Could not find config file" 
@@ -12,10 +12,16 @@ os.system("sudo openocd -f" +configPath +" -c 'init' -c 'shutdown'  2>"+ var)
 
 searchfile = open(var)
 for line in searchfile:
-    if "0x4ba00477" in line:
+
+    if "0x06413041" in line:
         #print line
         target = "stm32f4x.cfg"
         boardVar =  "Found target board: " + target
+    elif "0x4ba00477" in line:
+	#print line
+        target = "stellaris.cfg"
+        boardVar =  "Found target board: " + target
+
 searchfile.close()
 
 
