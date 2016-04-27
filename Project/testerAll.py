@@ -75,7 +75,7 @@ def findBoard ():
     target = "Error Chip Not Found"
     boardVar = "Could not find board"
     configVar = "Could not find config file"
-    os.system("sudo openocd -f jtag\ connection/rp.cfg -c 'init' -c 'shutdown' 2>"+ var)
+    os.system("sudo openocd -f jtag_connection/rp_generic.cfg -c 'init' -c 'shutdown' 2>"+ var)
 
 
     # # searchfile = open(var)
