@@ -35,7 +35,7 @@ class OptionWindow:
     def flash_to_board(self, widget):
         print "file will now flash"
         ####Path hardcoded for now
- #       startGDB.startGDB(binaries_available.binary_exe[0])
+        startGDB.startGDB(binaries_available.binary_exe[0])
 
     def debug(self, widget, data=None):
         print "debug function will be called"
