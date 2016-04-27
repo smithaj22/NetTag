@@ -39,7 +39,7 @@ class OptionWindow:
     def flash_to_board(self, widget):
         print "file will now flash"
 	#Add call to FLASH CODE
-#        startGDB.startGDB(binary_selected)
+       	startGDB.startGDB(binary_selected)
 
     def debug(self, widget, data=None):
 	#Add call to DEBUG CODE
