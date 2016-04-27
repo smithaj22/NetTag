@@ -12,12 +12,16 @@ def findBoard ():
 
     searchfile = open(var)
     for line in searchfile:
-        if "0x4ba00477" in line:
-            #print line
+   	if "0x06413041" in line:
+ 	    #print line
             target = "stm32f4x.cfg"
             boardVar =  "Found target board: " + target
-    searchfile.close()
+        elif "0x4ba00477" in line:
+            #print line
+            target = "stellaris.cfg"
+            boardVar =  "Found target board: " + target
 
+    searchfile.close()
 
     print boardVar
 
