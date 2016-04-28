@@ -5,7 +5,7 @@ import os
 import mmap
 
 def hexToChip ():
-    os.chdir("boards")
+    os.chdir("/home/pi/NetTag/Project/boards")
     chipNames = subprocess.check_output("ls") #list of boards we have
     chipNames= chipNames.split("\n") #trim up carriage return
     techName = [] #second array to store lookup values
@@ -19,7 +19,7 @@ def hexToChip ():
         f.close()
         os.chdir("..")
     os.chdir("..")
-
+    
     #check output file for preset hex values
     f = open('output.txt') #change to output once openocd spits out again
     s = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ) #reduces load on memory if output gets big
@@ -71,7 +71,7 @@ def binaries_available (targetChip):
 
 
 def findBoard ():
-    var = "output.txt"
+    var = "/home/pi/NetTag/Project/output.txt"
     path =  "/usr/local/share/openocd/scripts/target"
     target = "Error Chip Not Found"
     boardVar = "Could not find board"

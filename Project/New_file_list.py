@@ -12,10 +12,12 @@ pygtk.require('2.0')
 import gtk
 import binaries_available
 import os
+import testerAll
+import main_window
 #import startGDB
 
 binary_selected = "0"
-board_selected = "board1"
+board_selected =""# testerAll.hexToChip()
 
 class OptionWindow:
 
@@ -46,8 +48,9 @@ class OptionWindow:
         print "debug function will be called"
 
     def __init__(self):
-	message = " " 
-	binaries_available.binAvailable(board_selected)
+	message = " "
+	
+	binaries_available.binAvailable(main_window.board)
        ####window settings###
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
 	gtk.Window.fullscreen(self.window)

@@ -18,7 +18,8 @@ binary_exe = []
 def binAvailable (board):
 
     print board
-    homepath="boards"
+    print ("in bin available")
+    homepath="/home/pi/NetTag/Project/boards"
     if len(board) <1: #if len(sys.argv) <2:
         board = raw_input('Please enter a board: ')
     # else:

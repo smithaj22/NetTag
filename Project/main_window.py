@@ -7,7 +7,7 @@ binaries and options.'''
 import pygtk
 pygtk.require('2.0')
 import gtk
-#import testerAll.py
+import testerAll
 import New_file_list
 import os
 import sys
@@ -20,19 +20,20 @@ runOrDebug = 0 #0 for run 1 for debug
 
 class StartWin:
     def callback_getId(self, widget):
-	New_file_list.board_selected = "board0" 
+#	New_file_list.board_selected = "board0" 
 	print New_file_list.board_selected
        	print "Start was selected.."
- #       board = testerAll.findBoard()
+        testerAll.findBoard()
+        board = testerAll.hexToChip()
         print board
-#	New_file_list.board_selected = board
+	New_file_list.board_selected = board
         New_file_list.OptionWindow()
 
     def callback_file_window(self, widget):
         New_file_list.board_selected = target_selected
         print New_file_list.board_selected
         print "Board was selected.."
-	self.manualStartButton.set_text(str(target_selected))
+#	self.manualStartButton.set_text(str(target_selected))
         New_file_list.OptionWindow()
 
 
@@ -53,7 +54,7 @@ class StartWin:
         self.window.connect("delete_event", self.close_application)
         self.window.set_size_request(480,250)
         self.window.set_title("NetTag")
-	
+	os.chdir("/home/pi/NetTag/Project/boards")
 
         #Logo - inserted as image
         self.logo = gtk.Image()
@@ -64,7 +65,11 @@ class StartWin:
         self.comboList = gtk.combo_box_new_text()
         self.comboList.connect("changed", self.change_target)
 #        self.comboList.set_active(0)
-	os.chdir("boards")
+#	os.chdir(r"~/home/pi/NetTag/Project/boards")
+
+	 
+	os.chdir("../..")
+	os.chdir("/home/pi/NetTag/Project/boards")
 	chipNames = subprocess.check_output("ls")
 	chipNames = chipNames.split("\n")
 
