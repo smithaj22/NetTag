@@ -30,7 +30,7 @@ class OptionWindow:
         return False
 
     def change_bin_file(self, widget):
-        binary_selected = "./" + str(widget.get_active_text())
+        binary_selected = str(widget.get_active_text())
         message = "File selected:  " + str(widget.get_active_text())
         self.fileLabel.set_text(message)
 	self.extraLabel.set_text("Now select Flash or Debug")
@@ -41,9 +41,11 @@ class OptionWindow:
         print "text changed"
 
     def flash_to_board(self, widget):
+        binary_selected = str(self.comboList.get_active_text())
         print "file will now flash"
+	print (str(binary_selected))
 	#Add call to FLASH CODE
-       	startGDB.startGDB(binary_selected)
+#       	startGDB.startGDB(binary_selected)
 
     def debug(self, widget, data=None):
 	#Add call to DEBUG CODE
