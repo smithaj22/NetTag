@@ -45,8 +45,9 @@ def binAvailable (board):
         for root, directories, files in os.walk("."):
             for filename in files:
                 filepath = os.path.join(root, filename)
-                binary_names.append(filename)
-                binary_exe.append(filepath)
+                if(filename != 'techName.txt' and filename != 'GDBScript.py' and filename != 'openOCDStart.pyw'):
+                    binary_names.append(filename)
+                    binary_exe.append(filepath)
         # print(binary_names)
         # print(binary_exe)
         print("Program Complete")
