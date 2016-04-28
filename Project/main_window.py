@@ -58,7 +58,7 @@ class StartWin:
 
         #Logo - inserted as image
         self.logo = gtk.Image()
-        self.logo.set_from_file("Pics/miniLogo.png")
+        self.logo.set_from_file("/home/pi/NetTag/Project/Pics/miniLogo.png")
         # self.logo.queue_resize
 	
 	####Combo box###

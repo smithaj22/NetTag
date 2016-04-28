@@ -17,7 +17,8 @@ import main_window
 #import startGDB
 
 binary_selected = "0"
-board_selected =""# testerAll.hexToChip()
+testerAll.findBoard()
+board_selected = testerAll.hexToChip()
 
 class OptionWindow:
 
@@ -49,8 +50,9 @@ class OptionWindow:
 
     def __init__(self):
 	message = " "
-	
-	binaries_available.binAvailable(main_window.board)
+	testerAll.findBoard()
+	print(testerAll.hexToChip())
+	binaries_available.binAvailable(testerAll.hexToChip())
        ####window settings###
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
 	gtk.Window.fullscreen(self.window)

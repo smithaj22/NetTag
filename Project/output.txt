@@ -2,6 +2,18 @@ Open On-Chip Debugger 0.10.0-dev-00249-gb6c4a5d (2016-04-05-00:37)
 Licensed under GNU GPL v2
 For bug reports, read
 	http://openocd.org/doc/doxygen/bugs.html
-embedded:startup.tcl:60: Error: Can't find jtag_connection/rp_generic.cfg
-in procedure 'script' 
-at file "embedded:startup.tcl", line 60
+adapter speed: 500 kHz
+BCM2835 GPIO config: tck = 2, tms = 3, tdi = 4, tdo = 17
+BCM2835 GPIO config: srst = 27
+srst_only separate srst_gates_jtag srst_push_pull connect_deassert_srst
+jtag
+Info : BCM2835 GPIO JTAG/SWD bitbang driver
+Info : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)
+Info : clock speed 500 kHz
+Warn : There are no enabled taps.  AUTO PROBING MIGHT NOT WORK!!
+Info : JTAG tap: auto0.tap tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd.), part: 0xba00, ver: 0x4)
+Info : JTAG tap: auto1.tap tap/device found: 0x06413041 (mfg: 0x020 (STMicroelectronics), part: 0x6413, ver: 0x0)
+Warn : AUTO auto0.tap - use "jtag newtap auto0 tap -irlen 4 -expected-id 0x4ba00477"
+Warn : AUTO auto1.tap - use "jtag newtap auto1 tap -irlen 5 -expected-id 0x06413041"
+Warn : gdb services need one or more targets defined
+shutdown command invoked
