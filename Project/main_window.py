@@ -7,7 +7,7 @@ binaries and options.'''
 import pygtk
 pygtk.require('2.0')
 import gtk
-import get_id
+import testerAll.py
 import New_file_list
 import os
 
@@ -21,7 +21,7 @@ class StartWin:
 	New_file_list.board_selected = "board0" 
 	print New_file_list.board_selected
        	print "Start was selected.."
-        board = get_id.findBoard()
+        board = testerAll.findBoard()
         print board
 #	New_file_list.board_selected = board
         New_file_list.OptionWindow()

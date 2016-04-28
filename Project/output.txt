@@ -1,7 +1,20 @@
-Open On-Chip Debugger 0.10.0-dev-00249-gb6c4a5d (2016-04-05-00:37)
+Open On-Chip Debugger 0.10.0-dev-00249-gb6c4a5d (2016-04-04-18:44)
 Licensed under GNU GPL v2
 For bug reports, read
 	http://openocd.org/doc/doxygen/bugs.html
-embedded:startup.tcl:60: Error: Can't find /usr/local/share/openocd/scripts/interface/rp.cfg
-in procedure 'script' 
-at file "embedded:startup.tcl", line 60
+adapter speed: 500 kHz
+BCM2835 GPIO config: tck = 2, tms = 3, tdi = 4, tdo = 17
+BCM2835 GPIO config: srst = 27
+srst_only separate srst_gates_jtag srst_push_pull connect_deassert_srst
+jtag
+Info : BCM2835 GPIO JTAG/SWD bitbang driver
+Info : JTAG only mode enabled (specify swclk and swdio gpio to add SWD mode)
+Info : clock speed 500 kHz
+Warn : There are no enabled taps.  AUTO PROBING MIGHT NOT WORK!!
+Error: JTAG scan chain interrogation failed: all zeroes
+Error: Check JTAG interface, timings, target power, etc.
+Error: Trying to use configured scan chain anyway...
+Error: IR capture error at bit 0, saw 0x00 not 0x...3
+Warn : Bypassing JTAG setup events due to errors
+Warn : gdb services need one or more targets defined
+shutdown command invoked
