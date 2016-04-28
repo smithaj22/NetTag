@@ -45,7 +45,13 @@ class OptionWindow:
         print "file will now flash"
 	print (str(binary_selected))
 	#Add call to FLASH CODE
-	os.system("arm-none-eabi-gdb -x gdb_flash.py")
+	if(binary_selected == "blinky_flash_all.elf"):
+		prog="gdb_flash_1.py"
+	if(binary_selected == "blinky_sequence.elf"):
+		prog="gdb_flash_2.py"
+	sysCall = "arm-none-eabi-gdb -x "+ prog
+	print(sysCall)
+	os.system(sysCall)
 	
 
     def debug(self, widget, data=None):
