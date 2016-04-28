@@ -7,9 +7,11 @@ binaries and options.'''
 import pygtk
 pygtk.require('2.0')
 import gtk
-import testerAll.py
+#import testerAll.py
 import New_file_list
 import os
+import sys
+import subprocess
 
 board = "will get Id from get_id"
 target_selected = "file manually selected"
@@ -21,7 +23,7 @@ class StartWin:
 	New_file_list.board_selected = "board0" 
 	print New_file_list.board_selected
        	print "Start was selected.."
-        board = testerAll.findBoard()
+ #       board = testerAll.findBoard()
         print board
 #	New_file_list.board_selected = board
         New_file_list.OptionWindow()
@@ -62,14 +64,18 @@ class StartWin:
         self.comboList = gtk.combo_box_new_text()
         self.comboList.connect("changed", self.change_target)
 #        self.comboList.set_active(0)
+	os.chdir("boards")
+	chipNames = subprocess.check_output("ls")
+	chipNames = chipNames.split("\n")
 
-#        for indexFile in range(len(binaries_available.binary_names)):
-#            self.comboList.append_text(binaries_available.binary_names[indexFile])
+        for indexFile in range(len(chipNames)):
+            self.comboList.append_text(chipNames[indexFile])
 #            #print 'File: ', binaries_available.binary_names$
 		
-        self.comboList.append_text("STM ")
-        self.comboList.append_text("TI ")
+#        self.comboList.append_text("STM ")
+ #       self.comboList.append_text("TI ")
 
+	
 
 
 	
