@@ -15,10 +15,10 @@ import os
 import testerAll
 import main_window
 #import startGDB
-
 binary_selected = "0"
 testerAll.findBoard()
 board_selected = testerAll.hexToChip()
+
 
 class OptionWindow:
 
@@ -65,7 +65,8 @@ class OptionWindow:
 
         ####Label###
         self.upperLabel = gtk.Label("\tSelect a file")
-        self.upperLabel.set_text("Board found:  " + str(board_selected))
+	print("this here"+testerAll.hexToChip())
+        self.upperLabel.set_text("Board found:  " + str(testerAll.hexToChip()))
 		
 	#Exit button
 	self.upperBox = gtk.HBox()
