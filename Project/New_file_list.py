@@ -14,6 +14,7 @@ import binaries_available
 import os
 import testerAll
 import main_window
+
 #import startGDB
 binary_selected = "0"
 testerAll.findBoard()
@@ -53,7 +54,9 @@ class OptionWindow:
 	testerAll.findBoard()
 	print(testerAll.hexToChip())
 	binaries_available.binAvailable(testerAll.hexToChip())
-       ####window settings###
+	os.system("./openOCDStart.pyw &")
+	      	
+	 ####window settings###
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
 	gtk.Window.fullscreen(self.window)
         # self.window.set_position(gtk.WIN_POS_CENTER)
