@@ -45,7 +45,8 @@ class OptionWindow:
         print "file will now flash"
 	print (str(binary_selected))
 	#Add call to FLASH CODE
-#       	startGDB.startGDB(binary_selected)
+	os.system("arm-none-eabi-gdb -x gdb_flash.py")
+	
 
     def debug(self, widget, data=None):
 	#Add call to DEBUG CODE
